@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Req } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { User } from "./user.schema";
+import { UserRequest } from "src/middleware/auth.middlware";
 
 
 @Controller('users')
@@ -26,8 +27,6 @@ export class UserController {
         await this.userService.createUser({ username, name, surname, password, tasks })
         return "Пользователь успешно создан!";
     }
-
-
 
 
 }

@@ -7,7 +7,6 @@ import { UserController } from './user.controller';
 
 
 
-
 @Module({
     imports: [
         MongooseModule.forFeature([
@@ -17,7 +16,8 @@ import { UserController } from './user.controller';
         ])
     ],
     controllers: [UserController],
-    providers: [ConfigService, UserService]
+    providers: [ConfigService, UserService],
+    exports: [UserService]
 })
 
 export class UserModule { }
