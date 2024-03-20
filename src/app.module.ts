@@ -11,8 +11,7 @@ import { AuthMiddleware } from './middleware/auth.middlware';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './middleware/auth.controller';
 import { AuthService } from './middleware/auth.service';
-import { UserService } from './user/user.service';
-import { User, UserSchema } from './user/user.schema';
+
 
 
 
@@ -26,12 +25,6 @@ import { User, UserSchema } from './user/user.schema';
       }), 
       inject: [ ConfigService ]
   }),
-
-    MongooseModule.forFeature([
-      {
-        name: User.name, schema: UserSchema
-      }
-    ]),
 
     TaskModule,
     UserModule,
