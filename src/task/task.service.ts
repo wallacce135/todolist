@@ -9,11 +9,13 @@ export class TaskService {
     constructor(@InjectModel(Task.name) private Model: Model<TaskDocument>) { }
 
     async getAllTasks(): Promise<Task[]>{
-        return await this.Model.find();
+        return await this.Model.find()
+        .select('-__v');
     }
 
     async getOneTask(_id: ObjectId): Promise<Task> {
-        return await this.Model.findById(_id);
+        return await this.Model.findById(_id)
+        .select('-__v');
     }
 
     async createTask(task: Task): Promise<Task> {
